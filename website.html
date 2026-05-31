@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chisholm's Motor Inn | Best Hotel in Saugus, MA</title>
+<meta name="description" content="Chisholm's Motor Inn — a comfortable, affordable hotel on Route 1 North in Saugus, MA. Minutes from Boston, Logan Airport & Revere Beach. Free WiFi, free parking, clean rooms. Book your stay today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F6EFE1;
+  --cream-2:#EEE4D0;
+  --paper:#FBF6EC;
+  --ink:#1C231B;
+  --pine:#2C4A3B;
+  --pine-dark:#1B3128;
+  --sage:#7E8E6F;
+  --sage-soft:#B6C0A6;
+  --terra:#C16539;
+  --terra-dark:#A1502B;
+  --gold:#CE9C4B;
+  --line:rgba(28,35,27,.14);
+  --shadow:0 26px 60px -28px rgba(27,49,40,.45);
+  --r:18px;
+  --maxw:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Hanken Grotesk",sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Fraunces",serif;font-weight:500;line-height:1.04;letter-spacing:-.01em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{
+  font-family:"Hanken Grotesk",sans-serif;font-weight:600;font-size:.74rem;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--terra);
+  display:inline-flex;align-items:center;gap:.7em;
+}
+.eyebrow::before{content:"";width:30px;height:1px;background:var(--terra);opacity:.7}
+
+/* grain overlay */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ NAV ============ */
+header.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  transition:background .4s ease, box-shadow .4s ease, padding .4s ease;
+  padding:20px 0;
+}
+header.nav.scrolled{background:rgba(27,49,40,.96);backdrop-filter:blur(10px);padding:12px 0;box-shadow:0 12px 40px -22px rgba(0,0,0,.7)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
+.brand .mark{
+  width:42px;height:42px;border-radius:50%;flex:none;
+  background:var(--terra);display:grid;place-items:center;
+  font-family:"Fraunces",serif;font-weight:600;color:#fff;font-size:1.25rem;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);
+}
+.brand b{font-family:"Fraunces",serif;font-weight:500;font-size:1.18rem;letter-spacing:-.01em;line-height:1.1;display:block}
+.brand span{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;opacity:.7;font-weight:600}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{color:var(--cream);font-weight:500;font-size:.95rem;position:relative;opacity:.92;transition:opacity .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--terra);transition:width .3s}
+.nav-links a:hover{opacity:1}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.phone-link{color:var(--cream);font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:8px;opacity:.92}
+.btn{
+  font-family:"Hanken Grotesk",sans-serif;font-weight:600;font-size:.92rem;letter-spacing:.02em;
+  border:none;cursor:pointer;border-radius:100px;padding:13px 26px;transition:transform .25s ease, box-shadow .25s ease, background .25s;
+  display:inline-flex;align-items:center;gap:9px;
+}
+.btn-primary{background:var(--terra);color:#fff;box-shadow:0 14px 30px -14px var(--terra-dark)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px -14px var(--terra-dark);background:var(--terra-dark)}
+.btn-ghost{background:transparent;color:var(--pine);border:1.5px solid var(--line)}
+.btn-ghost:hover{background:var(--pine);color:var(--cream);border-color:var(--pine);transform:translateY(-3px)}
+.btn-light{background:var(--cream);color:var(--pine-dark)}
+.btn-light:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{width:26px;height:2px;background:var(--cream);transition:.3s;border-radius:2px}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  color:var(--cream);overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:120%;object-fit:cover;position:absolute;top:-10%;left:0;will-change:transform}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(20,36,29,.92) 0%,rgba(20,36,29,.65) 45%,rgba(20,36,29,.32) 100%);
+}
+.hero-bg::before{content:"";position:absolute;inset:0;z-index:1;
+  background:radial-gradient(120% 80% at 80% 110%, rgba(193,101,57,.35), transparent 60%);}
+.hero-content{position:relative;z-index:2;padding:120px 0 200px;max-width:760px}
+.hero h1{font-size:clamp(2.9rem,7vw,6.2rem);font-weight:400;margin:22px 0 18px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:540px;opacity:.92;font-weight:300}
+.hero .actions{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap}
+.hero-meta{position:absolute;bottom:200px;right:28px;z-index:2;text-align:right;display:flex;flex-direction:column;gap:4px}
+.hero-meta .stars{color:var(--gold);letter-spacing:3px;font-size:1.1rem}
+.hero-meta small{opacity:.8;font-size:.8rem;letter-spacing:.05em}
+
+/* reveal */
+[data-reveal]{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.16,.84,.44,1),transform .9s cubic-bezier(.16,.84,.44,1)}
+[data-reveal].in{opacity:1;transform:none}
+[data-reveal][data-delay="1"]{transition-delay:.12s}
+[data-reveal][data-delay="2"]{transition-delay:.24s}
+[data-reveal][data-delay="3"]{transition-delay:.36s}
+[data-reveal][data-delay="4"]{transition-delay:.48s}
+
+/* ============ BOOKING BAR ============ */
+.booking-bar{
+  position:relative;z-index:30;margin-top:-90px;
+}
+.booking-card{
+  background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);
+  padding:26px;display:grid;grid-template-columns:repeat(4,1fr) auto;gap:18px;align-items:end;
+  border:1px solid rgba(255,255,255,.5);
+}
+.bk-field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.bk-field label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--pine)}
+.bk-field input,.bk-field select{
+  font-family:inherit;font-size:1rem;font-weight:500;color:var(--ink);
+  border:none;border-bottom:1.5px solid var(--line);background:transparent;padding:8px 2px;border-radius:0;
+  transition:border-color .25s;width:100%;
+}
+.bk-field input:focus,.bk-field select:focus{outline:none;border-color:var(--terra)}
+.booking-card .btn{height:52px;justify-content:center}
+
+/* ============ SECTIONS ============ */
+section{position:relative}
+.pad{padding:110px 0}
+.pad-lg{padding:140px 0}
+.sec-head{max-width:720px}
+.sec-head h2{font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;margin:18px 0 16px}
+.sec-head h2 em{font-style:italic;color:var(--terra)}
+.sec-head p{font-size:1.08rem;color:#4a5347}
+
+/* WELCOME */
+.welcome{background:var(--paper)}
+.welcome-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.welcome-text p{margin-bottom:18px;color:#3f483c;font-size:1.05rem}
+.welcome-media{position:relative}
+.welcome-media .main-img{border-radius:var(--r);box-shadow:var(--shadow);aspect-ratio:4/3;object-fit:cover;width:100%}
+.welcome-media .badge{
+  position:absolute;left:-26px;bottom:-26px;background:var(--pine);color:var(--cream);
+  border-radius:14px;padding:22px 26px;box-shadow:var(--shadow);
+}
+.welcome-media .badge b{font-family:"Fraunces",serif;font-size:2.4rem;display:block;line-height:1;color:var(--gold)}
+.welcome-media .badge span{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;border-top:1px solid var(--line);padding-top:48px}
+.stat b{font-family:"Fraunces",serif;font-size:clamp(2.4rem,4vw,3.3rem);font-weight:500;color:var(--pine);display:block;line-height:1}
+.stat span{font-size:.86rem;letter-spacing:.04em;color:#5a6356;display:block;margin-top:8px}
+
+/* FEATURES strip */
+.features{background:var(--pine-dark);color:var(--cream)}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.1);border-radius:var(--r);overflow:hidden}
+.feat{background:var(--pine-dark);padding:38px 30px;transition:background .3s}
+.feat:hover{background:var(--pine)}
+.feat .ic{width:46px;height:46px;margin-bottom:18px;color:var(--gold)}
+.feat h4{font-size:1.32rem;font-weight:500;margin-bottom:8px}
+.feat p{font-size:.94rem;opacity:.78;font-weight:300}
+
+/* ROOMS */
+.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:60px}
+.room-card{background:var(--paper);border-radius:var(--r);overflow:hidden;box-shadow:0 20px 50px -34px rgba(27,49,40,.5);
+  display:flex;flex-direction:column;transition:transform .4s ease, box-shadow .4s ease}
+.room-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.room-img{aspect-ratio:4/3;overflow:hidden;position:relative}
+.room-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.room-card:hover .room-img img{transform:scale(1.08)}
+.room-tag{position:absolute;top:16px;left:16px;background:var(--cream);color:var(--pine-dark);
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:100px}
+.room-body{padding:28px 26px 30px;display:flex;flex-direction:column;flex:1}
+.room-body h3{font-size:1.7rem;margin-bottom:10px}
+.room-body p{color:#4a5347;font-size:.98rem;margin-bottom:18px}
+.room-amen{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.room-amen span{font-size:.78rem;background:var(--cream-2);color:var(--pine);padding:6px 12px;border-radius:100px;font-weight:500}
+.room-body .btn{margin-top:auto;align-self:flex-start}
+
+/* AMENITIES */
+.amenities{background:var(--cream-2)}
+.amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px}
+.amen{background:var(--paper);border-radius:14px;padding:30px 24px;display:flex;align-items:center;gap:16px;
+  transition:transform .3s ease, box-shadow .3s;border:1px solid transparent}
+.amen:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(193,101,57,.25)}
+.amen .ic{width:34px;height:34px;color:var(--terra);flex:none}
+.amen b{font-weight:600;font-size:1rem}
+.more-services{margin-top:48px;background:var(--pine);color:var(--cream);border-radius:var(--r);padding:44px 48px}
+.more-services h3{font-size:1.6rem;margin-bottom:24px;color:var(--cream)}
+.more-services ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 40px}
+.more-services li{display:flex;gap:12px;font-size:.98rem;opacity:.9;align-items:flex-start}
+.more-services li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);margin-top:9px;flex:none}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;margin-top:54px}
+.g-item{overflow:hidden;border-radius:14px;cursor:pointer;position:relative}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.g-item:hover img{transform:scale(1.1)}
+.g-item::after{content:"⤢";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:1.5rem;
+  background:rgba(27,49,40,.35);opacity:0;transition:opacity .3s}
+.g-item:hover::after{opacity:1}
+.g-item.tall{grid-row:span 2}
+.g-item.wide{grid-column:span 2}
+
+/* ATTRACTIONS */
+.attractions{background:var(--pine-dark);color:var(--cream)}
+.attr-feature{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:var(--r);overflow:hidden;margin-top:54px;box-shadow:var(--shadow)}
+.attr-feature .media{min-height:380px;background-size:cover;background-position:center}
+.attr-feature .text{background:var(--pine);padding:54px 50px;display:flex;flex-direction:column;justify-content:center}
+.attr-feature .text h3{font-size:2.2rem;margin-bottom:6px;color:var(--cream)}
+.attr-feature .text .sub{color:var(--gold);font-weight:600;font-size:.95rem;margin-bottom:18px}
+.attr-feature .text p{opacity:.85;font-weight:300}
+.attr-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:30px}
+.attr-col{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:34px 30px}
+.attr-col h4{font-size:1.35rem;color:var(--gold);margin-bottom:18px}
+.attr-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.attr-col li{font-size:.95rem;opacity:.85;font-weight:300;padding-left:18px;position:relative}
+.attr-col li::before{content:"›";position:absolute;left:0;color:var(--terra);font-weight:700}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--terra);color:#fff;overflow:hidden}
+.t-track{position:relative;margin-top:40px;min-height:230px}
+.t-slide{position:absolute;inset:0;opacity:0;transform:translateX(40px);transition:opacity .7s ease, transform .7s ease;max-width:840px}
+.t-slide.active{opacity:1;transform:none;position:relative}
+.t-slide .quote{font-family:"Fraunces",serif;font-size:clamp(1.4rem,2.6vw,2.1rem);font-weight:400;font-style:italic;line-height:1.4;margin-bottom:22px}
+.t-slide .who{font-weight:600;letter-spacing:.04em}
+.t-slide .who span{opacity:.8;font-weight:400}
+.t-dots{display:flex;gap:10px;margin-top:34px}
+.t-dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:.3s}
+.t-dot.active{background:#fff;width:30px;border-radius:100px}
+.t-big-quote{position:absolute;top:-30px;left:-10px;font-family:"Fraunces",serif;font-size:11rem;opacity:.14;line-height:1}
+
+/* LOCATION */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:var(--r);overflow:hidden;margin-top:54px;box-shadow:var(--shadow)}
+.loc-info{background:var(--pine);color:var(--cream);padding:54px 50px}
+.loc-info h3{font-size:1.9rem;color:var(--cream);margin-bottom:26px}
+.loc-row{display:flex;gap:16px;margin-bottom:24px;align-items:flex-start}
+.loc-row .ic{width:24px;height:24px;color:var(--gold);flex:none;margin-top:3px}
+.loc-row b{display:block;font-size:1.02rem;margin-bottom:2px}
+.loc-row span{opacity:.82;font-size:.95rem;font-weight:300}
+.loc-row a{color:var(--cream)}
+.policy{margin-top:30px;padding-top:28px;border-top:1px solid rgba(255,255,255,.18)}
+.policy h4{font-size:1.05rem;letter-spacing:.04em;color:var(--gold);margin-bottom:16px;text-transform:uppercase;font-family:"Hanken Grotesk";font-weight:700}
+.policy-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.policy-grid div{font-size:.92rem;opacity:.88;font-weight:300}
+.policy-grid b{font-weight:600;opacity:1}
+.loc-map{min-height:520px}
+.loc-map iframe{width:100%;height:100%;border:0;filter:grayscale(.2) contrast(1.05)}
+
+/* CTA band */
+.cta-band{background:var(--pine-dark);color:var(--cream);text-align:center}
+.cta-band h2{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;max-width:780px;margin:0 auto 14px}
+.cta-band h2 em{font-style:italic;color:var(--gold)}
+.cta-band p{opacity:.85;max-width:520px;margin:0 auto 30px;font-weight:300}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--cream);padding:80px 0 32px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:44px}
+.foot-brand p{opacity:.65;font-size:.95rem;font-weight:300;margin-top:18px;max-width:280px}
+.foot-col h5{font-family:"Hanken Grotesk";font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;opacity:.55;margin-bottom:20px;font-weight:700}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.foot-col a,.foot-col li{opacity:.82;font-size:.95rem;font-weight:300;transition:opacity .25s}
+.foot-col a:hover{opacity:1;color:var(--gold)}
+.foot-bottom{margin-top:60px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.84rem;opacity:.55;font-weight:300}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:24px}
+.modal.open{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(20,36,29,.78);backdrop-filter:blur(6px)}
+.modal-card{position:relative;background:var(--paper);border-radius:var(--r);max-width:520px;width:100%;padding:44px;box-shadow:var(--shadow);
+  animation:pop .4s cubic-bezier(.16,.84,.44,1)}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:none}}
+.modal-card h3{font-size:1.9rem;margin-bottom:6px}
+.modal-card .sub{color:#4a5347;margin-bottom:26px}
+.modal-card .field{margin-bottom:18px;display:flex;flex-direction:column;gap:7px}
+.modal-card label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--pine)}
+.modal-card input,.modal-card select{font-family:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.modal-card input:focus,.modal-card select:focus{outline:none;border-color:var(--terra)}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.modal-close{position:absolute;top:18px;right:18px;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--pine);line-height:1}
+.modal-summary{background:var(--cream-2);border-radius:12px;padding:16px 18px;margin-bottom:20px;font-size:.92rem;color:var(--pine-dark);display:none}
+.modal-summary.show{display:block}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;z-index:2500;display:none;align-items:center;justify-content:center;padding:30px;background:rgba(20,36,29,.92)}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:88vh;border-radius:12px;box-shadow:var(--shadow)}
+.lightbox .lb-close{position:absolute;top:24px;right:30px;color:#fff;font-size:2.4rem;cursor:pointer;background:none;border:none}
+
+@media(max-width:980px){
+  .welcome-grid,.attr-feature,.loc-grid{grid-template-columns:1fr}
+  .attr-cols,.rooms-grid,.amen-grid,.feat-grid,.stats,.foot-grid{grid-template-columns:repeat(2,1fr)}
+  .more-services ul,.policy-grid{grid-template-columns:1fr}
+  .booking-card{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .loc-map{min-height:380px}
+  .welcome-media .badge{left:0}
+}
+@media(max-width:680px){
+  .nav-links,.phone-link{display:none}
+  .hamburger{display:flex}
+  .nav-links.mobile-open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    background:var(--pine-dark);padding:24px 28px;gap:18px}
+  .nav-links.mobile-open a{font-size:1.05rem}
+  .booking-card,.stats,.feat-grid,.rooms-grid,.amen-grid,.foot-grid{grid-template-columns:1fr}
+  .modal-row,.gallery-grid{grid-template-columns:1fr 1fr}
+  .pad,.welcome,.features,.amenities,.attractions,.testimonials{padding:70px 0}
+  .hero-meta{display:none}
+  .booking-bar{margin-top:-40px}
+  .g-item.wide{grid-column:span 1}
+  .g-item.tall{grid-row:span 1}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <span class="mark">C</span>
+      <span><b>Chisholm's</b><span>Motor Inn · Saugus, MA</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#welcome">About</a></li>
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#attractions">Things To Do</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+17812335100" class="phone-link">(781) 233-5100</a>
+      <button class="btn btn-primary" onclick="openBooking()">Book Now</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img id="heroImg" src="https://hexabiz.com/sushma/Chisholmsmotorinn/images/exterior.jpg" alt="Chisholm's Motor Inn exterior in Saugus, MA"
+         onerror="this.src='https://www.chisholmsmotorinn.com/wp-content/themes/chisholmsmotorinn/images/home-about-img.jpg'">
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow" data-reveal>Route 1 North · Saugus, Massachusetts</span>
+    <h1 data-reveal data-delay="1">Comfort meets<br><em>convenience.</em></h1>
+    <p class="lede" data-reveal data-delay="2">A relaxed, affordable stay just minutes from downtown Boston, Logan Airport and Revere Beach. Clean rooms, warm hospitality, and everything you need for the perfect trip.</p>
+    <div class="actions" data-reveal data-delay="3">
+      <button class="btn btn-primary" onclick="openBooking()">Check Availability</button>
+      <a href="#rooms" class="btn btn-light">Explore Rooms</a>
+    </div>
+  </div>
+  <div class="hero-meta" data-reveal data-delay="3">
+    <div class="stars">★★★★★</div>
+    <small>Rated by guests on TripAdvisor</small>
+  </div>
+</section>
+
+<!-- BOOKING BAR -->
+<div class="wrap booking-bar">
+  <div class="booking-card" data-reveal>
+    <div class="bk-field">
+      <label for="bkIn">Check In</label>
+      <input type="date" id="bkIn">
+    </div>
+    <div class="bk-field">
+      <label for="bkOut">Check Out</label>
+      <input type="date" id="bkOut">
+    </div>
+    <div class="bk-field">
+      <label for="bkGuests">Guests</label>
+      <select id="bkGuests">
+        <option>1 Adult</option><option selected>2 Adults</option><option>2 Adults · 1 Child</option>
+        <option>3 Adults</option><option>2 Adults · 2 Children</option><option>4 Adults</option>
+      </select>
+    </div>
+    <div class="bk-field">
+      <label for="bkRooms">Rooms</label>
+      <select id="bkRooms"><option selected>1 Room</option><option>2 Rooms</option><option>3 Rooms</option></select>
+    </div>
+    <button class="btn btn-primary" onclick="quickBook()">Book Now</button>
+  </div>
+</div>
+
+<!-- WELCOME -->
+<section class="welcome pad" id="welcome">
+  <div class="wrap welcome-grid">
+    <div class="welcome-text">
+      <span class="eyebrow" data-reveal>Welcome</span>
+      <h2 data-reveal data-delay="1" style="font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;margin:18px 0 22px">A comfortable stay in <em style="font-style:italic;color:var(--terra)">Saugus, MA.</em></h2>
+      <div data-reveal data-delay="2">
+        <p>If you're looking for a comfortable, affordable place to stay in Saugus, look no further than Chisholm's Motor Inn. Conveniently located on Route 1 North, we offer easy access to local attractions, shopping, dining and more.</p>
+        <p>Every room is equipped with free WiFi, a 40" flat-screen LED TV with HBO and cable, air-conditioning and heating, and a private bathroom — some units even feature a front patio with chairs. Whether you're here for business or leisure, our cozy, well-maintained rooms are designed for the best rest and relaxation.</p>
+        <p>We accept all major credit cards and offer free parking and friendly, 24-hour service.</p>
+      </div>
+      <div style="margin-top:30px" data-reveal data-delay="3">
+        <button class="btn btn-ghost" onclick="openBooking()">Reserve Your Room</button>
+      </div>
+    </div>
+    <div class="welcome-media" data-reveal data-delay="2">
+      <img class="main-img" src="https://hexabiz.com/sushma/Chisholmsmotorinn/images/hotel-exterior.webp" alt="Chisholm's Motor Inn building"
+           onerror="this.src='https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/home-gallery-new.jpg'">
+      <div class="badge"><b>6 mi</b><span>to Logan Airport</span></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat" data-reveal><b data-count="7">0</b> mi<span>to Downtown Boston</span></div>
+      <div class="stat" data-reveal data-delay="1"><b data-count="6">0</b> mi<span>to Logan Airport</span></div>
+      <div class="stat" data-reveal data-delay="2"><b data-count="7">0</b> mi<span>to Cambridge</span></div>
+      <div class="stat" data-reveal data-delay="3"><b data-count="24">0</b> hr<span>Check-in Service</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features pad">
+  <div class="wrap">
+    <div class="sec-head" style="color:var(--cream)" data-reveal>
+      <span class="eyebrow" style="color:var(--gold)">Why Stay With Us</span>
+      <h2 style="color:var(--cream)">Everything you need, <em style="color:var(--gold)">nothing you don't.</em></h2>
+    </div>
+    <div class="feat-grid" style="margin-top:54px">
+      <div class="feat" data-reveal>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 13a10 10 0 0114 0M8.5 16.5a5 5 0 017 0M2 9.5a16 16 0 0120 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
+        <h4>Free WiFi</h4><p>Fast, complimentary wireless internet in every room and across the property.</p>
+      </div>
+      <div class="feat" data-reveal data-delay="1">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 17v-5l2-5h10l2 5v5M5 17h14M5 17v2H3v-2M19 17v2h2v-2"/><circle cx="7.5" cy="14.5" r="1.2"/><circle cx="16.5" cy="14.5" r="1.2"/></svg>
+        <h4>Free Parking</h4><p>Plenty of free on-site parking, right outside your door.</p>
+      </div>
+      <div class="feat" data-reveal data-delay="2">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>
+        <h4>TV with HBO</h4><p>40" flat-screen LED TVs with HBO and popular cable channels.</p>
+      </div>
+      <div class="feat" data-reveal data-delay="3">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6 6l1.5 1.5M16.5 16.5L18 18M6 18l1.5-1.5M16.5 7.5L18 6"/><circle cx="12" cy="12" r="4"/></svg>
+        <h4>A/C &amp; Heating</h4><p>Climate control in every room so you're comfortable year-round.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="pad" id="rooms">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Our Rooms</span>
+      <h2>Budget-friendly rooms <em>made for resting.</em></h2>
+      <p>Well-maintained guest rooms with in-suite bathrooms — flexible for travellers, families and groups. Every room includes free WiFi, A/C, iron &amp; board and a phone.</p>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card" data-reveal>
+        <div class="room-img">
+          <span class="room-tag">Queen Bed</span>
+          <img src="https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/deluxe-room-new.jpg" alt="Deluxe Room"
+               onerror="this.src='https://hexabiz.com/sushma/Chisholmsmotorinn/images/deluxe-room.webp'">
+        </div>
+        <div class="room-body">
+          <h3>Deluxe Room</h3>
+          <p>A very spacious layout with a comfortable queen-size bed — perfect for couples or solo travellers who like room to spread out.</p>
+          <div class="room-amen"><span>Queen Bed</span><span>Free WiFi</span><span>A/C</span><span>Iron &amp; Board</span></div>
+          <button class="btn btn-ghost" onclick="openBooking('Deluxe Room')">Book Now</button>
+        </div>
+      </div>
+      <div class="room-card" data-reveal data-delay="1">
+        <div class="room-img">
+          <span class="room-tag">Non-Smoking</span>
+          <img src="https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/non-smoking-room-new.jpg" alt="Non-Smoking Room"
+               onerror="this.src='https://hexabiz.com/sushma/Chisholmsmotorinn/images/queen-bed.webp'">
+        </div>
+        <div class="room-body">
+          <h3>Non-Smoking Room</h3>
+          <p>Fresh, clean rooms with in-suite bathroom facilities — ideal for families and groups who prefer a smoke-free space.</p>
+          <div class="room-amen"><span>Private Bath</span><span>Free WiFi</span><span>A/C</span><span>Phone</span></div>
+          <button class="btn btn-ghost" onclick="openBooking('Non-Smoking Room')">Book Now</button>
+        </div>
+      </div>
+      <div class="room-card" data-reveal data-delay="2">
+        <div class="room-img">
+          <span class="room-tag">Double Bed</span>
+          <img src="https://hexabiz.com/sushma/Chisholmsmotorinn/images/double-bed.webp" alt="Double Bed Room"
+               onerror="this.src='https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/home-gallery-2.jpg'">
+        </div>
+        <div class="room-body">
+          <h3>Double Bed Room</h3>
+          <p>Two comfortable beds with a work desk, comfortable chair and USB charging — great for families or friends travelling together.</p>
+          <div class="room-amen"><span>Two Beds</span><span>Work Desk</span><span>USB Ports</span><span>Cable TV</span></div>
+          <button class="btn btn-ghost" onclick="openBooking('Double Bed Room')">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amenities pad" id="amenities">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Amenities</span>
+      <h2>Thoughtful touches in <em>every room.</em></h2>
+    </div>
+    <div class="amen-grid">
+      <div class="amen" data-reveal><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 13a10 10 0 0114 0M8.5 16.5a5 5 0 017 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg><b>Free WiFi</b></div>
+      <div class="amen" data-reveal data-delay="1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg><b>Air-Conditioning</b></div>
+      <div class="amen" data-reveal data-delay="2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/></svg><b>TV with Cable &amp; HBO</b></div>
+      <div class="amen" data-reveal data-delay="3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 4h10v6a5 5 0 01-10 0V4zM9 14v3a3 3 0 006 0v-3"/></svg><b>Free Parking</b></div>
+      <div class="amen" data-reveal><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 4h10l-1 7H8L7 4zM6 11h12v2a4 4 0 01-4 4h-4a4 4 0 01-4-4v-2z"/></svg><b>Iron &amp; Iron Board</b></div>
+      <div class="amen" data-reveal data-delay="1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h9a3 3 0 010 6H5zM5 10v8M9 18h6"/></svg><b>Phones</b></div>
+      <div class="amen" data-reveal data-delay="2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20v-6a8 8 0 0116 0v6M4 20h16M9 8c0-2 1-4 3-4"/></svg><b>Hair Dryer</b></div>
+      <div class="amen" data-reveal data-delay="3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="11" width="16" height="9" rx="1.5"/><path d="M7 11V8a5 5 0 0110 0v3"/></svg><b>Private Bathroom</b></div>
+    </div>
+
+    <div class="more-services" data-reveal>
+      <h3>More services &amp; conveniences</h3>
+      <ul>
+        <li>News &amp; sports channels</li>
+        <li>Wake-up call service</li>
+        <li>Extra blankets on request</li>
+        <li>24-hour check-in service</li>
+        <li>Accepts all major credit cards</li>
+        <li>Free local calls</li>
+        <li>Smoking &amp; non-smoking buildings</li>
+        <li>Work desk &amp; comfortable chair in every room</li>
+        <li>Sofa in some rooms</li>
+        <li>Dedicated USB charging ports</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="pad" id="gallery">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Gallery</span>
+      <h2>Take a look <em>around.</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item wide tall" data-reveal><img src="https://hexabiz.com/sushma/Chisholmsmotorinn/images/hotel-exterior.webp" alt="Hotel exterior" onerror="this.src='https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/home-gallery-new.jpg'"></div>
+      <div class="g-item" data-reveal data-delay="1"><img src="https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/home-gallery-new-1.jpg" alt="Room view"></div>
+      <div class="g-item" data-reveal data-delay="2"><img src="https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/home-gallery-3.jpg" alt="Room interior"></div>
+      <div class="g-item" data-reveal data-delay="1"><img src="https://hexabiz.com/sushma/Chisholmsmotorinn/images/queen-bed.webp" alt="Queen bed" onerror="this.src='https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/home-gallery-2.jpg'"></div>
+      <div class="g-item" data-reveal data-delay="2"><img src="https://hexabiz.com/sushma/Chisholmsmotorinn/images/deluxe-room.webp" alt="Deluxe room" onerror="this.src='https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/deluxe-room-new.jpg'"></div>
+      <div class="g-item wide" data-reveal><img src="https://hexabiz.com/sushma/Chisholmsmotorinn/images/double-bed.webp" alt="Double bed room" onerror="this.src='https://www.chisholmsmotorinn.com/wp-content/uploads/2018/08/non-smoking-room-new.jpg'"></div>
+      <div class="g-item" data-reveal data-delay="1"><img src="https://www.chisholmsmotorinn.com/wp-content/uploads/2018/02/bathroom.jpg" alt="In-room bathroom"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ATTRACTIONS -->
+<section class="attractions pad" id="attractions">
+  <div class="wrap">
+    <div class="sec-head" style="color:var(--cream)" data-reveal>
+      <span class="eyebrow" style="color:var(--gold)">Things To Do</span>
+      <h2 style="color:var(--cream)">Boston &amp; the North Shore <em style="color:var(--gold)">at your doorstep.</em></h2>
+      <p style="color:rgba(246,239,225,.8)">From the Freedom Trail to Revere Beach, the best of Massachusetts is just a short drive away — and plenty is within walking distance.</p>
+    </div>
+
+    <div class="attr-feature" data-reveal>
+      <div class="media" style="background-image:url('https://hexabiz.com/sushma/Chisholmsmotorinn/images/airport.jpg')"></div>
+      <div class="text">
+        <h3>Revere Beach</h3>
+        <div class="sub">America's First Public Beach — minutes away</div>
+        <p>One of the oldest public beaches in the United States, known for its scenic shoreline, ocean views and relaxing atmosphere. The perfect setting for walking, sunbathing, swimming and outdoor recreation — an ideal spot to unwind and enjoy the coastal charm of Massachusetts.</p>
+      </div>
+    </div>
+
+    <div class="attr-cols">
+      <div class="attr-col" data-reveal>
+        <h4>Attractions &amp; Landmarks</h4>
+        <ul>
+          <li>Faneuil Hall</li><li>Fenway Park</li><li>New England Aquarium / IMAX 3D</li>
+          <li>Boston Harbor Cruises</li><li>Bunker Hill Monument</li><li>Prudential Center</li>
+          <li>Museum of Fine Arts</li><li>Salem Witch Museum</li><li>Museum of Science</li>
+        </ul>
+      </div>
+      <div class="attr-col" data-reveal data-delay="1">
+        <h4>Walking Distance</h4>
+        <ul>
+          <li>Dunkin' Donuts</li><li>Walgreens</li><li>Domino's Pizza</li>
+          <li>Out of Asia</li><li>Square One Mall</li><li>Mini Golf &amp; Batting Cages</li>
+          <li>Ice cream (across the street)</li>
+        </ul>
+      </div>
+      <div class="attr-col" data-reveal data-delay="2">
+        <h4>Restaurants Nearby</h4>
+        <ul>
+          <li>Bertucci's — brick-oven pizza</li><li>Border Cafe — Tex-Mex</li>
+          <li>UNO Chicago Bar &amp; Grill</li><li>Out of Asia Cafe &amp; Grill (next door)</li>
+          <li>Prince Pizza — award-winning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials pad">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#fff" data-reveal>What Our Guests Say</span>
+    <div class="t-track" data-reveal>
+      <div class="t-big-quote">“</div>
+      <div class="t-slide active">
+        <div class="quote">The beds were very comfy and the rooms were very clean. The staff brought extra towels ASAP. I recommend staying here — we surely will on our next trip.</div>
+        <div class="who">Thats_GM <span>· TripAdvisor</span></div>
+      </div>
+      <div class="t-slide">
+        <div class="quote">Everything was nearly perfect when we stayed here. The place was clean, affordable and cozy. We will stay there again.</div>
+        <div class="who">PhxHotel <span>· Phoenix, Arizona</span></div>
+      </div>
+      <div class="t-slide">
+        <div class="quote">The staff was wonderful and very helpful. The rooms were very clean and felt like I was in my own bedroom — very spacious and modern.</div>
+        <div class="who">JamesTSanDiego <span>· TripAdvisor</span></div>
+      </div>
+    </div>
+    <div class="t-dots">
+      <button class="t-dot active" onclick="goSlide(0)"></button>
+      <button class="t-dot" onclick="goSlide(1)"></button>
+      <button class="t-dot" onclick="goSlide(2)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="pad" id="location">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Find Us</span>
+      <h2>Easy to reach, <em>hard to leave.</em></h2>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-info" data-reveal>
+        <h3>Chisholm's Motor Inn</h3>
+        <div class="loc-row">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12A7 7 0 005 9c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div><b>Address</b><span>1314 Broadway, Saugus, MA 01906</span></div>
+        </div>
+        <div class="loc-row">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
+          <div><b>Phone</b><span><a href="tel:+17812335100">(781) 233-5100</a></span></div>
+        </div>
+        <div class="loc-row">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <div><b>Email</b><span><a href="mailto:chisholmsmotorinn@gmail.com">chisholmsmotorinn@gmail.com</a></span></div>
+        </div>
+        <div class="policy">
+          <h4>Hotel Policy</h4>
+          <div class="policy-grid">
+            <div><b>Check-in</b><br>4:00 PM</div>
+            <div><b>Check-out</b><br>11:00 AM</div>
+            <div><b>Pets</b><br>Not allowed</div>
+            <div><b>Min. age</b><br>21 to check in</div>
+            <div style="grid-column:1/-1">Children 18 and above are charged as adults.</div>
+          </div>
+        </div>
+        <div style="margin-top:30px"><button class="btn btn-light" onclick="openBooking()">Book Your Stay</button></div>
+      </div>
+      <div class="loc-map" data-reveal data-delay="1">
+        <iframe loading="lazy" title="Map to Chisholm's Motor Inn"
+          src="https://www.google.com/maps?q=1314+Broadway,+Saugus,+MA+01906&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band pad-lg">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--gold);justify-content:center;display:flex" data-reveal>Ready When You Are</span>
+    <h2 data-reveal data-delay="1" style="margin-top:18px">Book now and enjoy a <em>blissful stay.</em></h2>
+    <p data-reveal data-delay="2">Comfortable rooms, free parking, free WiFi and a prime Route 1 location — all at a price that makes sense.</p>
+    <div data-reveal data-delay="3"><button class="btn btn-primary" onclick="openBooking()" style="font-size:1.02rem;padding:16px 36px">Reserve Your Room</button></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a href="#top" class="brand"><span class="mark">C</span><span><b>Chisholm's</b><span>Motor Inn</span></span></a>
+      <p>A comfortable, affordable motor inn on Route 1 North in Saugus, MA — minutes from Boston, Logan Airport and Revere Beach.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="#welcome">About Us</a></li><li><a href="#rooms">Rooms</a></li>
+        <li><a href="#amenities">Amenities</a></li><li><a href="#gallery">Gallery</a></li>
+        <li><a href="#attractions">Things To Do</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <ul>
+        <li>1314 Broadway<br>Saugus, MA 01906</li>
+        <li><a href="tel:+17812335100">(781) 233-5100</a></li>
+        <li><a href="mailto:chisholmsmotorinn@gmail.com">chisholmsmotorinn@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Reservations</h5>
+      <ul>
+        <li>Check-in: 4:00 PM</li><li>Check-out: 11:00 AM</li>
+        <li>24-hour check-in service</li>
+        <li style="margin-top:8px"><button class="btn btn-primary" onclick="openBooking()">Book Now</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year"></span> Chisholm's Motor Inn. All rights reserved.</span>
+    <span>Route 1 North · Saugus, Massachusetts</span>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+  <div class="modal-bg" onclick="closeBooking()"></div>
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeBooking()">&times;</button>
+    <h3>Reserve your stay</h3>
+    <p class="sub">Tell us your dates and we'll take you to secure checkout.</p>
+    <div class="modal-summary" id="modalSummary"></div>
+    <div class="field"><label>Room Type</label>
+      <select id="mRoom"><option>Deluxe Room</option><option>Non-Smoking Room</option><option>Double Bed Room</option><option>King Bed Room</option><option>Queen Bed Room</option></select>
+    </div>
+    <div class="modal-row">
+      <div class="field"><label>Check In</label><input type="date" id="mIn"></div>
+      <div class="field"><label>Check Out</label><input type="date" id="mOut"></div>
+    </div>
+    <div class="modal-row">
+      <div class="field"><label>Adults</label><select id="mAdults"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
+      <div class="field"><label>Children</label><select id="mChildren"><option selected>0</option><option>1</option><option>2</option><option>3</option></select></div>
+    </div>
+    <div class="field"><label>Rooms</label><select id="mRooms"><option selected>1</option><option>2</option><option>3</option></select></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="confirmBooking()">Continue to Secure Booking</button>
+    <p style="font-size:.8rem;color:#6a7264;margin-top:14px;text-align:center">Or call us directly at <a href="tel:+17812335100" style="color:var(--terra);font-weight:600">(781) 233-5100</a></p>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close">&times;</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script>
+/* ---- Booking engine link (real reservation system from the existing site) ---- */
+var BOOKING_URL = "https://www.sellvel.com/booking/iSellvel/mStep1.aspx?hotelinfoid=b3b4df27-b309-4eb5-bf0e-c77c30e75b33";
+
+/* ---- Nav scroll state ---- */
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function(){
+  if(window.scrollY > 60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+  var hi = document.getElementById('heroImg');
+  if(hi && window.scrollY < window.innerHeight) hi.style.transform = 'translateY(' + (window.scrollY * 0.28) + 'px)';
+});
+
+/* ---- Mobile menu ---- */
+document.getElementById('hamburger').addEventListener('click', function(){
+  document.getElementById('navLinks').classList.toggle('mobile-open');
+});
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('mobile-open'); });
+});
+
+/* ---- Scroll reveal ---- */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+}, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+
+/* ---- Animated counters ---- */
+var counted = false;
+var statObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting && !counted){
+      counted = true;
+      document.querySelectorAll('[data-count]').forEach(function(el){
+        var target = +el.getAttribute('data-count'), cur = 0, step = Math.max(1, Math.ceil(target/30));
+        var t = setInterval(function(){ cur += step; if(cur>=target){cur=target;clearInterval(t);} el.textContent = cur; }, 30);
+      });
+    }
+  });
+}, {threshold:0.4});
+var statsEl = document.querySelector('.stats'); if(statsEl) statObs.observe(statsEl);
+
+/* ---- Testimonials ---- */
+var slides = document.querySelectorAll('.t-slide'), dots = document.querySelectorAll('.t-dot'), cur = 0;
+function goSlide(i){
+  slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
+  cur = i; slides[cur].classList.add('active'); dots[cur].classList.add('active');
+}
+setInterval(function(){ goSlide((cur+1)%slides.length); }, 6000);
+
+/* ---- Dates ---- */
+function pad(n){return n<10?'0'+n:n;}
+function iso(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+var today = new Date(), tom = new Date(Date.now()+86400000);
+['bkIn','mIn'].forEach(function(id){var e=document.getElementById(id); e.value=iso(today); e.min=iso(today);});
+['bkOut','mOut'].forEach(function(id){var e=document.getElementById(id); e.value=iso(tom); e.min=iso(tom);});
+
+/* ---- Booking modal ---- */
+var modal = document.getElementById('bookingModal');
+function openBooking(room){
+  if(room){ var s=document.getElementById('mRoom'); for(var i=0;i<s.options.length;i++){if(s.options[i].text===room)s.selectedIndex=i;} }
+  document.getElementById('mIn').value = document.getElementById('bkIn').value;
+  document.getElementById('mOut').value = document.getElementById('bkOut').value;
+  modal.classList.add('open'); document.body.style.overflow='hidden';
+}
+function closeBooking(){ modal.classList.remove('open'); document.body.style.overflow=''; }
+function quickBook(){ openBooking(); confirmBooking(); }
+function confirmBooking(){
+  var inD=document.getElementById('mIn').value, outD=document.getElementById('mOut').value;
+  if(new Date(outD)<=new Date(inD)){ alert('Please choose a check-out date after your check-in date.'); return; }
+  var sum = document.getElementById('modalSummary');
+  sum.innerHTML = '<b>'+document.getElementById('mRoom').value+'</b><br>'+inD+' → '+outD+' · '+
+    document.getElementById('mAdults').value+' adult(s), '+document.getElementById('mChildren').value+' child(ren) · '+
+    document.getElementById('mRooms').value+' room(s)<br><span style="opacity:.7">Opening secure booking…</span>';
+  sum.classList.add('show');
+  setTimeout(function(){ window.open(BOOKING_URL, '_blank'); }, 900);
+}
+
+/* ---- Lightbox ---- */
+document.querySelectorAll('.g-item img').forEach(function(img){
+  img.parentElement.addEventListener('click', function(){
+    document.getElementById('lbImg').src = img.src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeBooking(); closeLightbox(); } });
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
